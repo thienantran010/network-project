@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Network], a very basic Express website that keeps track of people and their connections.
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p There are !{count} people in the network.

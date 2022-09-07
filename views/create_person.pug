@@ -1,0 +1,36 @@
+extend layout 
+
+block content 
+  h1= title 
+
+    form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#first_name.form-control(type='text' placeholder='First name (Christian)' name='first_name' required='true' value=(undefined===person ? '' : person.first_name) )
+      label(for='family_name') Family Name:
+      input#family_name.form-control(type='text' placeholder='Family name (Surname)' name='family_name' required='true' value=(undefined===person ? '' : person.family_name))
+    div.form-group
+      label(for='date_of_birth') Date of birth:
+      input#date_of_birth.form-control(type='date' name='date_of_birth' value=(undefined===person ? '' : person.date_of_birth) )
+      label(for='date_of_death') Date of death:
+      input#date_of_death.form-control(type='date' name='date_of_death' value=(undefined===person ? '' : person.date_of_death) )
+    div.form-group
+      label(for='description') Describe the person: 
+      input#description.form-control(type='textarea' name='description' value=(undefined===person ? '' : person.description))
+    div.form-group
+      label(for='picture') Upload a picture of the person: 
+      input#picture.form-control(type='file' name='picture' value=(undefined===person ? '' : person.picture))
+    div.form-group
+      label(for='blood_relations') Blood Relations: 
+      input#blood_relations.form-control(type='text' name='blood_relations' value=(undefined===person ? '' : person.blood_relations))
+      label(for='friends') Friends:
+      input#friends.form-control(type='text' name='friends' value=(undefined===person ? '' : person.friends))
+      label(for='acquaintances') Acquaintances: 
+      input#acquaintances.form-control(type='text' name='acquaintances' value=(undefined===person ? '' : person.acquaintances))
+      label(for='invisible_threads') Invisible Threads: 
+      input#invisible_threads.form-control(type='text' name='invisible_threads' value=(undefined===person ? '' : person.invisible_threads))
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
